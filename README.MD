@@ -1,8 +1,12 @@
 # Основа
 ```
     Python 3.8.5
+    MongoDB
 ```
-
+# Требования
+```
+pip install -r requirements.txt
+```
 ## Пример curl команд
 - Создать товар
 ```
@@ -91,7 +95,8 @@ curl -X GET "http://0.0.0.0:8000/retrieve_product_by_name?name=Iphone11" -H  "ac
 curl -X GET "http://0.0.0.0:8000/retrieve_product_by_id?_id=5fba4671e2285a1eabfd685b" -H  "accept: application/json"
 ```
 Если ID в MongoDB = 5fba4671e2285a1eabfd685b
-```{
+```
+{
     "_id": {
       "$oid": "5fba4671e2285a1eabfd685b"
     },
@@ -101,4 +106,5 @@ curl -X GET "http://0.0.0.0:8000/retrieve_product_by_id?_id=5fba4671e2285a1eabfd
       "os": "Ios",
       "year": "2019"
     }
-  }```
+  }
+```
