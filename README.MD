@@ -1,12 +1,17 @@
 # Основа
 ```
-    Python 3.8
-    MongoDB
+    Python==3.8
+    MongoDB==4.4.2
 ```
 # Требования
 ```
 pip install -r requirements.txt
 ```
+## Запуск приложения
+```
+python main.py
+```
+
 ## Пример curl команд
 - Создать товар
 ```
@@ -28,7 +33,7 @@ curl -X POST "http://0.0.0.0:8000/create" -H  "accept: application/json" -H  "Co
 
 - Найти все товары
 ```
-curl -X GET "http://0.0.0.0:8000/retrieve_product_by_name" -H  "accept: application/json"
+curl -X GET "http://0.0.0.0:8000/retrieve_productname_by_name" -H  "accept: application/json"
 ```
 Запрос вернет названия товаров
 ```
@@ -39,7 +44,7 @@ curl -X GET "http://0.0.0.0:8000/retrieve_product_by_name" -H  "accept: applicat
 ```
 - Фильтр по имени
 ```
-curl -X GET "http://0.0.0.0:8000/retrieve_product_by_name?name=Iphone11" -H  "accept: application/json"
+curl -X GET "http://0.0.0.0:8000/retrieve_productname_by_name?name=Iphone11" -H  "accept: application/json"
 ```
 Запрос отфильтрует названия товаров
 ```
@@ -49,7 +54,7 @@ curl -X GET "http://0.0.0.0:8000/retrieve_product_by_name?name=Iphone11" -H  "ac
 ```
 - Поиск по параметру
 ```
-curl -X POST "http://0.0.0.0:8000/retrieve_product_by_options" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"os\":\"Ios\",\"year\":\"2018\"}"
+curl -X POST "http://0.0.0.0:8000/retrieve_productname_by_options" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"os\":\"Ios\",\"year\":\"2018\"}"
 ```
 ```
 [
@@ -60,9 +65,8 @@ curl -X POST "http://0.0.0.0:8000/retrieve_product_by_options" -H  "accept: appl
 - Если нужны все данные о продукте по названию.
 ```
 curl -X GET "http://0.0.0.0:8000/retrieve_product_by_name?name=Iphone11" -H  "accept: application/json"
-
 ```
-Запрос вернёт масиив всех продуктов с таким названием и полную информацию о них
+Запрос вернёт массив всех продуктов с таким названием и полную информацию о них
 ```
 [
   {
@@ -90,7 +94,7 @@ curl -X GET "http://0.0.0.0:8000/retrieve_product_by_name?name=Iphone11" -H  "ac
 ```
 
 
-- Поиск по ID
+- Поиск товара по ID
 ```
 curl -X GET "http://0.0.0.0:8000/retrieve_product_by_id?_id=5fba4671e2285a1eabfd685b" -H  "accept: application/json"
 ```

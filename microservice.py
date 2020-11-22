@@ -15,10 +15,8 @@ class Product(BaseModel):
 
 
 def create_product(product):
-    print(product)
     product = collection.insert_one(product)
     new_product = collection.find_one({'_id': product.inserted_id})
-    print(new_product)
     return json_util.dumps(new_product)
 
 
@@ -45,7 +43,6 @@ def retrieve_productname_by_options(options):
 
 def retrieve_product_by_id(_id):
     product = collection.find_one(SON({"_id": ObjectId(_id)}))
-    print(product)
     return json_util.dumps(product)
 
 

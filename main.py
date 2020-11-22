@@ -41,9 +41,7 @@ def create_product(product: Product = Body(..., example={
     "options": {"os": "Ios",
                 "year": "2018"},
 }, embed=True)):
-    print(product)
     product = jsonable_encoder(product)
-    print(product)
     new_product = microservice.create_product(product)
     return Response(content=new_product, media_type="application/json")
 
